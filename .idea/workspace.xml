@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45f52061-cf0e-4c7d-a127-7bc23c677aa1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gram/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="45f52061-cf0e-4c7d-a127-7bc23c677aa1" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +92,7 @@
       <updated>1571104278040</updated>
       <workItem from="1571104280752" duration="1718000" />
       <workItem from="1571109374178" duration="646000" />
-      <workItem from="1571110039923" duration="843000" />
+      <workItem from="1571110039923" duration="1487000" />
     </task>
     <servers />
   </component>
