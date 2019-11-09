@@ -10,13 +10,13 @@ array = []
 
 
 def onKeyboardEvent(event):
-    if (event.Key == "Y"):
-        print('监听按键:' + event.Key)
+    if (event.Key == "Lcontrol"):
+        print('=> ' + event.Key)
         # 随机读取一行文字
-        b = random.sample(array, 1)
-        print('=> ' + b[0].decode('utf-8'))
+        b = random.choice(array)
+        print('=> ' + b)
         # 写入系统缓存
-        setText(b[0].decode('utf-8').encode(sys.getfilesystemencoding()))
+        setText(b.encode(sys.getfilesystemencoding()))
     return True
 
 
@@ -29,14 +29,14 @@ def setText(str):
     w.SetClipboardData(win32con.CF_TEXT, str)
     # 关闭剪切板
     w.CloseClipboard()
+    print(str)
 
 
 if __name__ == '__main__':
     # 修改了读取文件报错
-    f = open('kouhai.txt', 'rb')
+    f = open('msg.txt', 'r', encoding='utf-8')
     # 逐行读取文件内容
     array = f.readlines()
-    print(type(array))
     # 创建hook句柄
     hm = PyHook3.HookManager()
     # 监控键盘
