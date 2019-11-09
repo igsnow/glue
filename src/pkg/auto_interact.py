@@ -33,14 +33,14 @@ def gettext():
 def settext(str):
     w.OpenClipboard()
     w.EmptyClipboard()
-    w.SetClipboardData(win32con, CF_TEXT, str)
+    w.SetClipboardData(win32con.CF_TEXT, str)
     w.CloseClipboard()
 
 
 if __name__ == '__main__':
     f = open('kouhai.txt', 'r')
     array = f.readlines()
-    hm = pyHook.HookManger()
+    hm = pyHook.HookManager()
     hm.KeyDown = onKeyboardEvent
     hm.HookKeyboard()
     # hm.MouseAll = onMouseEvent
