@@ -10,7 +10,8 @@ array = []
 
 
 def onKeyboardEvent(event):
-    if (event.Key == "Lcontrol"):
+    print(event.Key)
+    if (event.Key == "Y"):
         print('监听按键:' + event.Key)
         # 随机读取一行文字
         b = random.sample(array, 1)
@@ -36,7 +37,7 @@ if __name__ == '__main__':
     f = open('kouhai.txt', 'rb')
     # 逐行读取文件内容
     array = f.readlines()
-    print(array)
+    print(type(array))
     # 创建hook句柄
     hm = pyHook.HookManager()
     # 监控键盘
