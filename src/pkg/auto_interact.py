@@ -38,7 +38,8 @@ def settext(str):
 
 
 if __name__ == '__main__':
-    f = open('kouhai.txt', 'r')
+    # 修改
+    f = open('kouhai.txt', 'rb')
     array = f.readlines()
     hm = pyHook.HookManager()
     hm.KeyDown = onKeyboardEvent
