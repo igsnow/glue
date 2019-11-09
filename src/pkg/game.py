@@ -14,7 +14,7 @@ def onKeyboardEvent(event):
         print('监听按键:' + event.Key)
         # 随机读取一行文字
         b = random.sample(array, 1)
-        print('随机抽取的文字：' + b[0].decode('utf-8'))
+        print('=> ' + b[0].decode('utf-8'))
         # 写入系统缓存
         setText(b[0].decode('utf-8').encode(sys.getfilesystemencoding()))
     return True
