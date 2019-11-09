@@ -2,7 +2,7 @@
 import sys
 import win32clipboard as w
 import win32con
-import pyHook
+import PyHook3
 import pythoncom
 import random
 
@@ -10,7 +10,6 @@ array = []
 
 
 def onKeyboardEvent(event):
-    print(event.Key)
     if (event.Key == "Y"):
         print('监听按键:' + event.Key)
         # 随机读取一行文字
@@ -39,7 +38,7 @@ if __name__ == '__main__':
     array = f.readlines()
     print(type(array))
     # 创建hook句柄
-    hm = pyHook.HookManager()
+    hm = PyHook3.HookManager()
     # 监控键盘
     hm.KeyDown = onKeyboardEvent
     hm.HookKeyboard()
