@@ -46,14 +46,14 @@ def handleText():
     print(r)
 
     # ctrl
-    win32api.keybd_event(17, 0, win32con.KEYEVENTF_EXTENDEDKEY, 0)
+    win32api.keybd_event(17, 0, 0, 0)
     # v
-    win32api.keybd_event(86, 0, win32con.KEYEVENTF_EXTENDEDKEY, 0)
+    win32api.keybd_event(86, 0, 0, 0)
+    # enter
+    win32api.keybd_event(13, 0, 0, 0)
     # 释放按键
     win32api.keybd_event(86, 0, win32con.KEYEVENTF_KEYUP, 0)
     win32api.keybd_event(17, 0, win32con.KEYEVENTF_KEYUP, 0)
-    # enter
-    win32api.keybd_event(13, 0, win32con.KEYEVENTF_EXTENDEDKEY, 0)
     win32api.keybd_event(13, 0, win32con.KEYEVENTF_KEYUP, 0)
 
 
