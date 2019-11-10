@@ -12,10 +12,10 @@ array = []
 
 def onKeyboardEvent(event):
     if (event.Key == "Lmenu"):
-        print('=> ' + event.Key)
+        print('监听按键: ', event.Key)
         # 随机读取一行文字
         b = random.choice(array)
-        print('=> ' + b)
+        print('随机语录: ', b)
         # 写入系统缓存
         setText(b)
         # 自动粘贴剪切板的内容
@@ -43,8 +43,7 @@ def getText():
 
 def handleText():
     r = getText()
-    print(r)
-
+    print('剪切板: ', r)
     # ctrl
     win32api.keybd_event(17, 0, 0, 0)
     # v
@@ -52,8 +51,8 @@ def handleText():
     # enter
     win32api.keybd_event(13, 0, 0, 0)
     # 释放按键
-    win32api.keybd_event(86, 0, win32con.KEYEVENTF_KEYUP, 0)
     win32api.keybd_event(17, 0, win32con.KEYEVENTF_KEYUP, 0)
+    win32api.keybd_event(86, 0, win32con.KEYEVENTF_KEYUP, 0)
     win32api.keybd_event(13, 0, win32con.KEYEVENTF_KEYUP, 0)
 
 
