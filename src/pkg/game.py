@@ -6,6 +6,7 @@ import win32api
 import PyHook3
 import pythoncom
 import random
+import time
 
 array = []
 
@@ -44,8 +45,11 @@ def getText():
 def handleText():
     r = getText()
     print('剪切板: ', r)
+    time.sleep(0.5)
     # Y 唤起聊天框
-    win32api.keybd_event(89, 0, 0, 0)
+    # win32api.keybd_event(89, 0, 0, 0)
+    # 释放按键Y
+    # win32api.keybd_event(89, 0, win32con.KEYEVENTF_KEYUP, 0)
     # ctrl
     win32api.keybd_event(17, 0, 0, 0)
     # v
@@ -57,8 +61,6 @@ def handleText():
     win32api.keybd_event(13, 0, 0, 0)
     # 释放按键enter
     win32api.keybd_event(13, 0, win32con.KEYEVENTF_KEYUP, 0)
-    # 释放按键Y
-    win32api.keybd_event(89, 0, win32con.KEYEVENTF_KEYUP, 0)
 
 
 if __name__ == '__main__':
