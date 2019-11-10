@@ -11,13 +11,15 @@ array = []
 
 
 def onKeyboardEvent(event):
-    if (event.Key == "Y"):
+    if (event.Key == "Lmenu"):
         print('=> ' + event.Key)
         # 随机读取一行文字
         b = random.choice(array)
         print('=> ' + b)
         # 写入系统缓存
-        setText(b.encode(sys.getfilesystemencoding()))
+        setText(b)
+        # 自动粘贴剪切板的内容
+        handleText()
     return True
 
 
@@ -27,23 +29,31 @@ def setText(str):
     # 置空剪切板
     w.EmptyClipboard()
     # 写入剪切板
-    w.SetClipboardData(win32con.CF_TEXT, str)
+    w.SetClipboardText(str)
     # 关闭剪切板
     w.CloseClipboard()
-    # 自动粘贴剪切板的内容
-    handleText()
+
+
+def getText():
+    w.OpenClipboard()
+    res = w.GetClipboardData(win32con.CF_TEXT)
+    w.CloseClipboard()
+    return res
 
 
 def handleText():
+    r = getText()
+    print(r)
+
     # ctrl
-    win32api.keybd_event(17, 0, 0, 0)
+    win32api.keybd_event(17, 0, win32con.KEYEVENTF_EXTENDEDKEY, 0)
     # v
-    win32api.keybd_event(86, 0, 0, 0)
+    win32api.keybd_event(86, 0, win32con.KEYEVENTF_EXTENDEDKEY, 0)
     # 释放按键
     win32api.keybd_event(86, 0, win32con.KEYEVENTF_KEYUP, 0)
     win32api.keybd_event(17, 0, win32con.KEYEVENTF_KEYUP, 0)
     # enter
-    win32api.keybd_event(13, 0, 0, 0)
+    win32api.keybd_event(13, 0, win32con.KEYEVENTF_EXTENDEDKEY, 0)
     win32api.keybd_event(13, 0, win32con.KEYEVENTF_KEYUP, 0)
 
 
