@@ -43,7 +43,6 @@ def getText():
 def handleText():
     r = getText()
     print('剪切板: ', r.decode('gbk'))
-    # time.sleep(0.8)
     # Y 唤起聊天框
     win32api.keybd_event(89, 0, 0, 0)
     # 释放按键Y
