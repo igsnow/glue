@@ -9,20 +9,20 @@ import random
 array = []
 
 
-def onKeyboardEvent(event):
-    if (event.Key == "Lmenu"):
+def on_keyboard_event(event):
+    if event.Key == "Lmenu":
         print('监听按键: ', event.Key)
         # 随机读取一行文字
         b = random.choice(array)
         print('随机语录: ', b)
         # 写入系统缓存
-        setText(b)
+        set_text(b)
         # 自动粘贴剪切板的内容
-        handleText()
+        copy_text()
     return True
 
 
-def setText(str):
+def set_text(str):
     # 打开剪切板
     w.OpenClipboard()
     # 置空剪切板
@@ -33,15 +33,15 @@ def setText(str):
     w.CloseClipboard()
 
 
-def getText():
+def get_text():
     w.OpenClipboard()
     res = w.GetClipboardData(win32con.CF_TEXT)
     w.CloseClipboard()
     return res
 
 
-def handleText():
-    r = getText()
+def copy_text():
+    r = get_text()
     print('剪切板: ', r.decode('gbk'))
     # Y 唤起聊天框
     win32api.keybd_event(89, 0, 0, 0)
@@ -68,7 +68,7 @@ if __name__ == '__main__':
     # 创建hook句柄
     hm = PyHook3.HookManager()
     # 监控键盘
-    hm.KeyDown = onKeyboardEvent
+    hm.KeyDown = on_keyboard_event
     hm.HookKeyboard()
     # 循环获取消息
     pythoncom.PumpMessages()
