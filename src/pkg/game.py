@@ -44,9 +44,9 @@ def copy_text():
     r = get_text()
     print('剪切板: ', r.decode('gbk'))
     # Y 唤起聊天框
-    win32api.keybd_event(89, 0, 0, 0)
+    win32api.keybd_event(0x59, 0, 0, 0)
     # 释放按键Y
-    win32api.keybd_event(89, 0, win32con.KEYEVENTF_KEYUP, 0)
+    win32api.keybd_event(0x59, 0, win32con.KEYEVENTF_KEYUP, 0)
     # ctrl
     win32api.keybd_event(0x11, 0, 0, 0)
     # v
