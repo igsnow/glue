@@ -48,16 +48,16 @@ def copy_text():
     # 释放按键Y
     win32api.keybd_event(89, 0, win32con.KEYEVENTF_KEYUP, 0)
     # ctrl
-    win32api.keybd_event(17, 0, 0, 0)
+    win32api.keybd_event(0x11, 0, 0, 0)
     # v
-    win32api.keybd_event(86, 0, 0, 0)
+    win32api.keybd_event(0x56, 0, 0, 0)
     # 释放按键ctrl、v
-    win32api.keybd_event(86, 0, win32con.KEYEVENTF_KEYUP, 0)
-    win32api.keybd_event(17, 0, win32con.KEYEVENTF_KEYUP, 0)
+    win32api.keybd_event(0x56, 0, win32con.KEYEVENTF_KEYUP, 0)
+    win32api.keybd_event(0x11, 0, win32con.KEYEVENTF_KEYUP, 0)
     # enter
-    win32api.keybd_event(13, 0, 0, 0)
+    win32api.keybd_event(0x0D, 0, 0, 0)
     # 释放按键enter
-    win32api.keybd_event(13, 0, win32con.KEYEVENTF_KEYUP, 0)
+    win32api.keybd_event(0x0D, 0, win32con.KEYEVENTF_KEYUP, 0)
 
 
 if __name__ == '__main__':
