@@ -6,6 +6,11 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+flask = {index = "https://pypi.douban.com/simple",version = "*"}
+requests = {index = "https://pypi.douban.com/simple/",version = "*"}
+pandas = {index = "https://pypi.douban.com/simple/",version = "*"}
+xlrd = {index = "https://pypi.douban.com/simple/",version = "*"}
+numba = {index = "https://pypi.douban.com/simple/",version = "*"}
 
 [requires]
 python_version = "3.8"
