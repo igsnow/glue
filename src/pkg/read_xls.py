@@ -7,4 +7,4 @@ cols_list = cols_data.values.tolist()
 # 写入文件
 with open('thcode.txt', 'w') as f:
     for i in cols_list:
-        f.write("'" + i[0] + "',\n")
+        f.write(f"'{i[0]}',\n")
