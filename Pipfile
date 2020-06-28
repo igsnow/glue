@@ -12,6 +12,7 @@ pandas = "==1.0.3"
 requests = "==2.23.0"
 xlrd = "==1.2.0"
 xpinyin = {index = "https://pypi.douban.com/simple",version = "*"}
+myqr = {index = "https://pypi.douban.com/simple",version = "*"}
 
 [requires]
 python_version = "3.8"
