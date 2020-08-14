@@ -13,6 +13,7 @@ requests = "==2.23.0"
 xlrd = "==1.2.0"
 xpinyin = {index = "https://pypi.douban.com/simple",version = "*"}
 myqr = {index = "https://pypi.douban.com/simple",version = "*"}
+pyqt5 = "*"
 
 [requires]
 python_version = "3.8"
