@@ -31,7 +31,7 @@ class APP(QWidget):
 
     def Interface(self):  # 界面
         self.setWindowTitle('贪吃蛇')  # 标题
-        self.setFixedSize(425, 325)  # 限制窗口大小
+        self.setFixedSize(525, 325)  # 限制窗口大小
         self.grabKeyboard()  # 窗口接收键盘事件
 
         self.Floor = QHBoxLayout()
@@ -58,7 +58,7 @@ class APP(QWidget):
 
         self.Form2 = QFrame()
         self.Form2.setFrameShape(QFrame.Panel | QFrame.Plain)
-        self.Form2.setFixedSize(100, 293)
+        self.Form2.setFixedSize(200, 293)
 
         self.box = QVBoxLayout()
         self.Form2.setLayout(self.box)
