@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "glue"
+version = "1.0.0"
+description = "python tools"
+authors = ["igsnow <zzy716810918@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.24.0"
+Pyqt5 = "^5.15.1"
+numba = "^0.51.2"
+pypiwin32 = "^223"
+myqr = "^2.3.1"
+pandas = "^1.1.3"
+xlrd = "^1.2.0"
+xpinyin = "^0.5.7"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

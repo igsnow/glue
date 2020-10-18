@@ -1,14 +1,12 @@
-#!/usr/bin/env python3
-
 import json
 import requests
 from datetime import datetime
 
 Living_Matches_Url = 'http://bifen4m.qiumibao.com/json/list.htm'
 Match_Max_Sid_Url = 'http://dingshi4pc.qiumibao.com/livetext/' \
-    'data/cache/max_sid/%s/0.htm'
+                    'data/cache/max_sid/%s/0.htm'
 Match_Living_Text_Url = 'http://dingshi4pc.qiumibao.com/livetext/' \
-    'data/cache/livetext/%s/0/lit_page_2/%d.htm'
+                        'data/cache/livetext/%s/0/lit_page_2/%d.htm'
 Match_Info_Url = 'http://bifen4pc2.qiumibao.com/json/%s/%s.htm'
 
 
@@ -23,8 +21,8 @@ class Match:
 
     def __repr__(self):
         return "{self.id} {self.home_team} {self.home_score} - " \
-            "{self.visit_score} {self.visit_team} " \
-            "{self.period_cn}".format(self=self)
+               "{self.visit_score} {self.visit_team} " \
+               "{self.period_cn}".format(self=self)
 
 
 class TextLiving:
@@ -38,8 +36,8 @@ class TextLiving:
 
     def __repr__(self):
         return "{self.home_team} {self.home_score}-" \
-            "{self.visit_score} {self.visit_team} " \
-            "{self.live_text} [{self.period_cn}]".format(self=self)
+               "{self.visit_score} {self.visit_team} " \
+               "{self.live_text} [{self.period_cn}]".format(self=self)
 
 
 def get_living_matches():

@@ -62,7 +62,7 @@ def copy_text():
 
 if __name__ == '__main__':
     # 修改了读取文件报错
-    f = open('msg.txt', 'r', encoding='utf-8')
+    f = open('../tools/msg.txt', 'r', encoding='utf-8')
     # 逐行读取文件内容
     array = f.readlines()
     # 创建hook句柄

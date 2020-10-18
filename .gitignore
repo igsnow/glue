@@ -15,4 +15,4 @@
 *.sw*
 
 # python
-Pipfile.lock
+poetry.lock
