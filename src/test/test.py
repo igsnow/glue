@@ -1,5 +1,8 @@
 import time
 
+"""
+测试python的jit加速前后运行速度对比
+"""
 start_time = time.time()
 sum_num = 0
 for i in range(987654321):
