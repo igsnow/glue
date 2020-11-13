@@ -23,11 +23,11 @@ while True:
     price = get_price("https://item.jd.com/100016034394.html")
     print(price)
     if price <= 7000:
-        print('notice')
         notification.notify(
             title="降价提醒",
-            message=f"买！买！买！！！",
+            message="买！买！买！！！",
             app_icon="cart.ico",
-            timeout=10)
+            timeout=10
+        )
         break
     time.sleep(random.randint(30, 60))
