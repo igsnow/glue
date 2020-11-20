@@ -17,6 +17,7 @@ xpinyin = "^0.5.7"
 bs4 = "^0.0.1"
 plyer = "^2.0.0"
 selenium = "^3.141.0"
+Flask-PyMongo = "^2.3.0"
 
 [tool.poetry.dev-dependencies]
 
