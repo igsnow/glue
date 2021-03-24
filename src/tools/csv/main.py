@@ -30,7 +30,7 @@ def read_mongoDB():
     db = client["erpdb"]
     table = db["online"]
     result = []
-    for item in table.find().limit(20):
+    for item in table.find().limit(1):
         result.append(item)
 
     return result
@@ -39,19 +39,46 @@ def read_mongoDB():
 def parse_data(data):
     for item in data:
         _handle = item.get('Product').get('ItemId')
-        Handle.append(_handle)
+
         _title = item.get('Product').get('Attributes').get('name')
-        Title.append(_title)
+
         _body = item.get('Product').get('Attributes').get('description')
-        Body.append(_body)
+
         _published = 'TRUE'
-        Published.append(_published)
+
         _name = item.get('Product').get('Attributes').get('brand')
-        Vendor.append(_name)
+
         _type = item.get('Product').get('Attributes').get('name')
-        Type.append(_type)
+
         _tag = item.get('Product').get('categoryNameDesc')
-        Tags.append(_tag)
+
+        sku = item.get('Product').get('Skus').get('Sku')
+        print(len(sku))
+        for index, i in enumerate(sku):
+            Handle.append(_handle)
+            # 除了Handle字段，其他字段每个商品只出现一次
+            if index == 0:
+                Title.append(_title)
+                Body.append(_body)
+                Published.append(_published)
+                Vendor.append(_name)
+                Type.append(_type)
+                Tags.append(_tag)
+            else:
+                Title.append('')
+                Body.append('')
+                Published.append('')
+                Vendor.append('')
+                Type.append('')
+                Tags.append('')
+
+            if ('color_family' in i.keys()):
+                Option1Name.append('color')
+                Option1Value.append(i.get('color_family'))
+
+            if ('size' in i.keys()):
+                Option2Name.append('size')
+                Option2Value.append(i.get('size'))
 
 
 def save_excel():
@@ -62,10 +89,10 @@ def save_excel():
     data_df["Type"] = Type
     data_df["Tags"] = Tags
     data_df["Published"] = Published
-    # data_df["Option1 Name"] = Option1Name
-    # data_df["Option1 Value"] = Option1Value
-    # data_df["Option2 Name"] = Option2Name
-    # data_df["Option2 Value"] = Option2Value
+    data_df["Option1 Name"] = Option1Name
+    data_df["Option1 Value"] = Option1Value
+    data_df["Option2 Name"] = Option2Name
+    data_df["Option2 Value"] = Option2Value
     # data_df["Option3 Name"] = Option3Name
     # data_df["Option3 Value"] = Option3Value
     # data_df["Variant Grams"] = Grams
