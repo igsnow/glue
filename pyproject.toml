@@ -19,6 +19,8 @@ plyer = "^2.0.0"
 selenium = "^3.141.0"
 autopep8 = "^1.5.4"
 ngender = "^0.1.1"
+openpyxl = "^3.0.7"
+pymongo = "^3.11.3"
 
 [tool.poetry.dev-dependencies]
 
