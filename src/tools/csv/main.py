@@ -126,7 +126,7 @@ def parse_data(data):
                 Option2Value.append('')
 
             if ('package_weight' in i.keys()):
-                Grams.append(int(i.get('package_weight')) * 1000)
+                Grams.append(float(i.get('package_weight')) * 1000)
             else:
                 Grams.append('')
 
@@ -212,9 +212,12 @@ def save_excel():
         column_len = data_df[col].astype(str).str.len().max()
         # Setting the length if the column header is larger
         # than the max column value length
-        column_len = max(column_len, len(col)) + 5
+        column_len = max(column_len, len(col)) + 4
         # set the column length
-        worksheet.set_column(i, i, column_len)
+        cell_format = workbook.add_format()
+        cell_format.set_align('left')
+
+        worksheet.set_column(i, i, column_len, cell_format=cell_format)
 
     # 将Body的列宽调小点
     worksheet.set_column("C:C", 50)  # 在这里更改宽度值
