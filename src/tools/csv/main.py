@@ -126,7 +126,7 @@ def parse_data(data):
                 Option2Value.append('')
 
             if ('package_weight' in i.keys()):
-                Grams.append(i.get('package_weight') * 1000)
+                Grams.append(int(i.get('package_weight')) * 1000)
             else:
                 Grams.append('')
 
@@ -201,20 +201,23 @@ def save_excel():
     data_df["SEO Description"] = SeoDesc
     data_df["Image Alt Text"] = ImgAltText
 
-    writer = pd.ExcelWriter('sku.xlsx')
+    writer = pd.ExcelWriter('sku.xlsx', engine='xlsxwriter')
     data_df.to_excel(writer, sheet_name='product_template', index=False)
 
-    # workbook = writer.book
-    # worksheet = writer.sheets['product_template']
+    workbook = writer.book
+    worksheet = writer.sheets['product_template']
 
-    # for i, col in enumerate(data_df.columns):
-    #     # find length of column i
-    #     column_len = data_df[col].astype(str).str.len().max()
-    #     # Setting the length if the column header is larger
-    #     # than the max column value length
-    #     column_len = max(column_len, len(col)) + 2
-    #     # set the column length
-    #     worksheet.set_column(i, i, column_len)
+    for i, col in enumerate(data_df.columns):
+        # find length of column i
+        column_len = data_df[col].astype(str).str.len().max()
+        # Setting the length if the column header is larger
+        # than the max column value length
+        column_len = max(column_len, len(col)) + 5
+        # set the column length
+        worksheet.set_column(i, i, column_len)
+
+    # 将Body的列宽调小点
+    worksheet.set_column("C:C", 50)  # 在这里更改宽度值
 
     writer.save()
 
