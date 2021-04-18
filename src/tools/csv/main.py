@@ -43,7 +43,7 @@ def read_mongoDB():
     db = client["erpdb"]
     table = db["online"]
     result = []
-    for item in table.find().limit(1):
+    for item in table.find().limit(20):
         result.append(item)
 
     return result
@@ -212,7 +212,7 @@ def save_excel():
         column_len = data_df[col].astype(str).str.len().max()
         # Setting the length if the column header is larger
         # than the max column value length
-        column_len = max(column_len, len(col)) + 4
+        column_len = max(column_len, len(col)) + 3
         # set the column length
         cell_format = workbook.add_format()
         cell_format.set_align('left')
